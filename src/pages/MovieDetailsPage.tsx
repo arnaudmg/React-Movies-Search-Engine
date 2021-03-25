@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { PopularMovies } from "../components/index";
 import PageLayout from "../Layout/PageLayout";
 import device from "../theme/device";
+import StarsRate from "../components/StarsRate" 
+
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -94,36 +96,6 @@ const LayoutStyled = styled(PageLayout)`
   }
 `;
 
-// const CategoryDetails = styled.div`
-//   margin-top: 2em;
-//   width: fit-content;
-//   padding: 0.5em 1em;
-//   border: 1px solid #33363a;
-//   border-radius: 8px;
-//   text-align: start;
-// `;
-
-// const CategoryTitle = styled.p`
-//   color: ${(props) => props.theme.colors.primary};
-//   font-weight: bold;
-//   margin-bottom: 0.5em;
-// `;
-
-
-// const InfoProductionMovie = styled.div`
-//   display: flex;
-//   width: 100%;
-//   align-items: center;
-//   flex-direction: column;
-//   div {
-//     margin-right: 1em;
-//   }
-//   @media ${device.tablet} {
-//     flex-direction: row;
-//     align-items: flex-start;
-//   }
-// `;
-
 const UpComingContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -195,6 +167,8 @@ export default function MovieDetailsPage() {
                     &nbsp;{dataMovies.genres[0].name}
               </p>
             )}
+                <StarsRate stars={dataMovies.popularity/2}/>
+                
                 <button style={{
                  boxShadow:"inset 0px 1px 3px 0px #d00000",
                  backgroundColor:"#D00000",
@@ -225,6 +199,8 @@ export default function MovieDetailsPage() {
                  textDecoration: "none",
                  marginTop:"25px"
             }}>D'autres films de cette catégorie</button>
+          
+            
           </FlexColumn>
 
          

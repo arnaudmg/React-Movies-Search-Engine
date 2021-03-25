@@ -3,8 +3,7 @@ import styled from "styled-components";
 import PageLayout from "../Layout/PageLayout";
 import device from "../theme/device";
 import MovieSearch from "../hooks/MovieSeach";
-import BackgroundImg from "../background.jpg";
-import StarsRate from "../components/StarsRate" 
+import BackgroundImg from "../background.jpg"; 
 
 import {
   InputComponent,
@@ -32,6 +31,7 @@ const Heading = styled.div`
   line-height: 80px;
   font-family: Poppins;
   font-size: 25px;
+  text-align: center;
   h1 {
     font-size: 2rem;
     font-family: Poppins;
@@ -50,6 +50,9 @@ const SearchInput = styled(InputComponent)`
   }
   input {
     height: 3.5em;
+    background-color: white;
+    color: black;
+    font-family: Poppins;
   }
 `;
 
@@ -86,6 +89,7 @@ const CategoriesTitle = styled.h3`
   font-weight: bold;
   margin-top: 1em;
   margin-bottom: 0.5em;
+  margin-left: 2.1em;
   font-size: 2rem;
   color: ${(props) => props.theme.colors.primary};
   @media ${device.laptop} {
@@ -147,9 +151,8 @@ export default function HomePage() {
           }}
           />
 
-          <h1>OUEDIOHSQ TEST</h1>
 
-          <StarsRate stars={4} /> 
+           
 
                     
 
