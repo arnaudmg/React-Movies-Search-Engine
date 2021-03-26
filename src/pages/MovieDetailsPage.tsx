@@ -169,7 +169,7 @@ export default function MovieDetailsPage() {
             )}
                 <StarsRate stars={dataMovies.popularity/2}/>
                 
-                <a href={`https://www.youtube.com/watch?v=${dataMovies.video.key}`}><button style={{
+                <a href={`https://www.youtube.com/watch?v=${dataMovies.video}`}><button style={{
                  boxShadow:"inset 0px 1px 3px 0px #d00000",
                  backgroundColor:"#D00000",
                  borderRadius:"5px",
