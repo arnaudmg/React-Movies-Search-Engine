@@ -7,7 +7,7 @@ import BackgroundImg from "../background.jpg";
 
 import {
   InputComponent,
-  // MoviesCard,
+  MoviesCard,
   PopularMovies,
   MoviesUpComing,
 } from "../components/index";
@@ -99,7 +99,7 @@ const CategoriesTitle = styled.h3`
 
 const SearchTitle = styled.h3`
   font-size: 2rem;
-  color: ${(props) => props.theme.colors.grey};
+  font-family: Poppins;
   span {
     color: ${(props) => props.theme.colors.primary};
     font-size: 1.5rem;
@@ -107,7 +107,7 @@ const SearchTitle = styled.h3`
 `;
 
 export default function HomePage() {
-  const [search, _setSearch] = useState("");
+  const [search, setSearch] = useState("");
   const [dataMovies, setDataMovies] = useState([]);
 
   useEffect(() =>{
@@ -119,18 +119,19 @@ export default function HomePage() {
   
 
   const renderMovies = dataMovies.map((movie) => {
-    // let options = { year: "numeric", month: "long", day: "numeric" };
-    // let releaseDate = new Date(movie.release_date);
+    if(movie){
 
-    // return (
-    //   <div key={`${movie}:${movie.id}`}>
-    //     <MoviesCard
-    //       id={movie.id}
-    //       title={movie.title}
-    //       poster={movie.poster_path}
-    //     />
-    //   </div>
-    // );
+    return (
+      <div key={`${movie}:${movie["id"]}`}>
+        <MoviesCard
+          id={movie["id"]}
+          title={movie["title"]}
+          poster={movie["poster_path"]}
+        />
+      </div>
+    );
+    }
+
   });
 
   return (
@@ -148,6 +149,7 @@ export default function HomePage() {
           placeholder="Si tu recherches un film précis..."          
           handleChange={ (event) =>  {
             MovieSearch(event.target.value)
+            setSearch(event.target.value)
           }}
           />
 

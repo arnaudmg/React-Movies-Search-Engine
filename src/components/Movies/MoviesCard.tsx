@@ -34,14 +34,25 @@ export default function MoviesCard({
   poster,
 }: MoviesCardProps) {
   const idPage = window.location.pathname.substr(1,5); 
-  
+  const renderImage = () => {
+    if(poster!==null){
+      return(
+        <img
+        src={`https://image.tmdb.org/t/p/w300/${poster}`}
+        alt="movie poster"
+      />
+      ) 
+    } else{
+      return(
+        <img
+        src={`http://nerdsontherocks.com/wp-content/uploads/2012/01/movie-poster-coming-soon.png`}/>
+      )
+    }
+  }
   return (
     <CardContainer onClick = { () => window.scrollTo(0,0)}>
       <Link to={idPage === 'movie' ? `${id}` :`movie/${id}`}>
-        <img
-          src={`https://image.tmdb.org/t/p/w300/${poster}`}
-          alt="movie poster"
-        />
+        {renderImage()}
         <Title>{title}</Title>
       </Link>
     </CardContainer>
