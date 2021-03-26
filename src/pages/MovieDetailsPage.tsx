@@ -124,7 +124,9 @@ export default function MovieDetailsPage() {
   const [movieId, setMovieId] = useState("");
 
   useEffect(() => {
-    setMovieId(idPage);
+    if(idPage){
+      setMovieId(idPage);
+    }
   }, [idPage]);
 
   const dataMovies = useMoviesId({ movieId: movieId });
@@ -169,7 +171,7 @@ export default function MovieDetailsPage() {
             )}
                 <StarsRate stars={dataMovies.popularity/2}/>
                 
-                <a href={`https://www.youtube.com/watch?v=${dataMovies.video}`}><button style={{
+                <button style={{
                  boxShadow:"inset 0px 1px 3px 0px #d00000",
                  backgroundColor:"#D00000",
                  borderRadius:"5px",
@@ -183,7 +185,7 @@ export default function MovieDetailsPage() {
                  padding:"11px 23px",
                  textDecoration: "none",
                  marginTop:"25px",
-            }}>Voir la Bande-Annonce</button></a>
+            }}>Voir la Bande-Annonce</button>
                 <button style={{
                  boxShadow:"inset 0px 1px 3px 0px #d00000",
                  backgroundColor:"transparent",

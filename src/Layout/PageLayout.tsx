@@ -23,10 +23,6 @@ type PageLayoutProps = {
 export default function PageLayout({ children, className }: PageLayoutProps) {
   return (
     <LayoutContainer className={className}>
-      {/* <Header /> */}
-
       <Main>{children}</Main>
-
-      {/* <Footer /> */}
     </LayoutContainer>
   )};
